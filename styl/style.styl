@@ -1,0 +1,244 @@
+main_font = Schoolbell, serif
+background_color = #fff;
+main_color = #000;
+
+html, body 
+    margin 0
+    padding: 0
+    width: 100%
+    height: 100%
+
+    background-color: background_color;
+
+    font-size: 12px
+    font-family: main_font
+
+    overflow: hidden
+
+.full-width {
+    width: 100%;
+}
+
+.question {
+    margin-top: 50px;
+    font-size: 2.5rem;
+    width: 100%;
+    text-align: center;
+}
+
+.central-block {
+    display: block;
+
+    box-sizing: border-box;
+    max-width: 600px;
+    margin: 0 auto;
+    height: 100%;
+    width: 100%;
+    
+    padding: 10px;
+
+    background-color: background_color;
+}
+
+.central-block-flex {
+    display: flex;
+    flex-direction: column;
+}
+
+input[type=text].form {
+    box-sizing: border-box;
+    font-size: 2rem;
+    font-family: main_font
+}
+
+input[type=submit].form {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    box-sizing: border-box;
+    font-size: 2rem;
+    font-family: main_font
+    margin: 0;
+}
+
+.hand-wrapper {
+    box-sizing: border-box;
+    display: block;
+    position: absolute;
+    width: 100%;
+    max-width: 600px;
+    height: auto;
+    top: 0;
+    left: 0;
+    right: 0;
+    margin: 0 auto;
+    padding: 0 10px;
+}
+
+.hand-transition-enter {
+    -webkit-transition: transform 8s linear;
+    -moz-transition: transform 8s linear;
+    transition: transform 8s linear;
+    transform-style: preserve-3d;
+}
+
+.hand-transition-leave {
+    -webkit-transition: transform 2s cubic-bezier(0.77, 0, 0.175, 1);
+    -moz-transition: transform 2s cubic-bezier(0.77, 0, 0.175, 1);
+    transition: transform 2s cubic-bezier(0.77, 0, 0.175, 1);
+    transform-style: preserve-3d;
+}
+
+.hand {
+    width: 140%;
+    height: auto;
+    position: absolute;
+    bottom: 30%;
+    
+    margin-left: -20%;
+    -webkit-transform: translateZ(0);
+    -moz-transform: translateZ(0);
+    -ms-transform: translateZ(0);
+    -o-transform: translateZ(0);
+    transform: translateZ(0);
+}
+
+.card-wrapper {
+    position: relative;
+    box-sizing: border-box;
+    width: 100%;
+    padding-bottom: 56%;
+    visibility: hidden;
+
+    perspective: 1000px;
+}
+.card {
+    position: absolute;
+    top:0;
+    left:0;
+    display: block;
+    box-sizing: border-box;
+    width: 100%;
+    height: 100%;
+    border-radius: 15px;
+    padding: 20px;
+    text-align: center;
+    font-size: 2rem;
+}
+.card-flipping {
+    transition: 0.6s;
+	transform-style: preserve-3d;
+}
+/* flip the pane when hovered */
+.card-wrapper.flip .card {
+    transform: rotateY(180deg);
+}
+
+.back, .front {
+	width: 100%;
+	height: 100%;
+}
+
+/* hide front of pane during swap */
+.back, .front, .back-static {
+    box-sizing: border-box;
+    background-color: white;
+	-webkit-backface-visibility: hidden;
+    -moz-backface-visibility: hidden;
+    frontface-visibility: hidden;
+    border-radius: 15px;
+
+	position: absolute;
+	top: 0;
+	left: 0;
+}
+
+/* back pane, placed above front */
+.back {
+	z-index: 2;
+	/* for firefox 31 */
+	transform: rotateY(0deg);
+}
+
+/* front, initially hidden pane */
+.front {
+    z-index: 1;
+	transform: rotateY(180deg);
+
+    background: url('../images/card_front.png');
+    background-size: 100% 100%;
+}
+
+.back-static {
+    width: 100%;
+    height: 100%;
+}
+
+.back, .back-static {
+    background-image: url('../images/card_black.png');
+    background-size: 100% 100%;
+}
+
+.confessor {
+    resize: none;
+    border: none;
+    font-size: 2rem;
+    font-family: main_font
+    flex-grow: 2;
+    outline: none;
+    overflow: hidden;
+    background-color: white;
+}
+
+.layer {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+
+    transition: opacity 1s;
+}
+
+.answer-layer {
+    opacity: 0;
+    visibility: hidden;
+    background: background_color;
+}
+
+.card-text {
+    width: 100%;
+    height: 100%;
+    padding: 4rem;
+    font-size: 3rem;
+}
+
+.underline {
+    margin-bottom: 30px;
+}
+
+.button {
+    box-sizing: border-box;
+    display: block;
+    text-decoration: none;
+    font-size: 2rem;
+    text-align: center;
+    color: main_color;
+}
+
+.centered {
+    margin: 0 auto;
+}
+
+.button:hover {
+    color: rgb(244, 130, 73);
+}
+
+.controls {
+    display: flex;
+    flex-direction: row-reverse;
+    padding: 20px;
+    opacity: 0;
+
+    transition: opacity 0.5s;
+}

@@ -1,0 +1,56 @@
+<!doctype html>
+<html>
+    <head>
+        <title>Advisor 1.0</title>
+        <link href="https://fonts.googleapis.com/css?family=Schoolbell" rel="stylesheet">
+        <link href="css/style.css" rel="stylesheet">
+    </head>
+    <body>
+        <div id="question-layer" class="layer">
+            <div id="hairs-container" class="layer"></div>
+            <div class="layer">
+                <div class="central-block central-block-flex">
+                    <h1 class="question">What worries you?</h1>
+                    <img src="images/underline.png" class="underline full-width">
+                    <textarea id="confessor" class="confessor full-width" placeholder="I understand all languages!"></textarea>
+                    <a href="#" id="submit-button" class="button centered">Send</a>
+                </div>
+            </div>
+        </div>
+
+        <div id="answer-layer" class="layer answer-layer">
+            <div id="hairs-container" class="layer"></div>
+
+            <div class="layer">
+                <div class="central-block">
+                    <div id="real-card" class="card-wrapper"style = "margin-top: 100px;">
+                        <div class="card card-flipping">
+                            <div class="back">
+                            </div>
+                            <div id="advice" class="front card-text">
+                            </div>
+                        </div>
+                    </div>
+
+                    <div id="controls" class="controls">
+                        <a id="retry" class="button" href="#"><img src="images/cursor.png"></a>
+                    </div>
+                </div>
+
+                <div id="hand" class="hand-wrapper">
+                    <div id="faux-card" class="card-wrapper">
+                        <div class="card">
+                            <div class="back-static">
+                            </div>
+                        </div>
+                    </div>
+
+                    <img width="800" height="2119" class="hand" id="arm">
+                </div>
+            </div>
+        </div>
+
+        <a href="https://github.com/you"><img style="position: absolute; top: 0; right: 0; border: 0;" src="https://camo.githubusercontent.com/38ef81f8aca64bb9a64448d0d70f1308ef5341ab/68747470733a2f2f73332e616d617a6f6e6177732e636f6d2f6769746875622f726962626f6e732f666f726b6d655f72696768745f6461726b626c75655f3132313632312e706e67" alt="Fork me on GitHub" data-canonical-src="https://s3.amazonaws.com/github/ribbons/forkme_right_darkblue_121621.png"></a>
+        <script src="dist/app.js"></script>
+    </body>
+</html>

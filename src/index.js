@@ -53,30 +53,45 @@ answerLayer.addEventListener('transitionend', (e) => {
 
 hand.addEventListener('transitionend', () => {
     if (handState === handStates.up) {
-        console.log('i brought the card')
+        const advice = randomArrayElement(advices)
+        history.pushState(null, null, '?v=2')
         adviceElement.innerHTML = randomArrayElement(advices)
         card.style.visibility = "visible"
         setTimeout(handLeave, 0)
     } else if (handState === handStates.down) {
-        console.log('i am away')
         flip()
         document.querySelector('#controls').style.opacity = 1
     }
 })
 
-init()
+window.addEventListener('load', init);
 
 function init () {
-    document.querySelector('#confessor').focus()
+    history.pushState(null, null, '/')
+
     const submitButton = document.getElementById("submit-button")
     submitButton.addEventListener('click', () => {
         answerLayer.style.visibility = 'visible'
         answerLayer.style.opacity = 1
     })
 
-    selectImages()
+    const confessor = document.querySelector('#confessor')
+    confessor.focus()
+    confessor.addEventListener("keypress", (e) => {
+        const code = e.keyCode || e.keyIdentifier || e.wich
+        const enterCode = 13
+        if (code === enterCode) {
+            e.preventDefault()
+            submitButton.click()
+        }
+    })
+    
+    
 
+    selectImages()
     positionHandOffscreen()
+
+    window.addEventListener('resize', hairHandler.reset)
 }
 
 function selectImages() {
@@ -98,7 +113,6 @@ function selectImages() {
         const backgroundImage = `url(${randomArrayElement(cardImages)})`
         return (element) => element.style['background-image'] = backgroundImage
     })())
-    
 }
 
 function handEnter() {

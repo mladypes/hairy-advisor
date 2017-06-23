@@ -1,4 +1,4 @@
-import {initCanvas} from './canvas'
+import {initCanvas, resizeCanvasToContainer} from './canvas'
 import {sample} from './sampling'
 
 export function hairs(container) {
@@ -12,9 +12,14 @@ export function hairs(container) {
   loop(0)
   
 
-  function init (canvas) {
+  function init(canvas) {
     container.appendChild(canvas.element)
+    fillWithHairs()
+  }
+
+  function fillWithHairs() {
     const hairCount = 200
+    allHairs.splice(0, allHairs.length)
     allHairs.push(createHairAt({x: 0, y: 0}))
     
     function continuousHairFill() {
@@ -87,7 +92,13 @@ export function hairs(container) {
     cancelAnimationFrame(rafId)
   }
 
+  function reset() {
+    resizeCanvasToContainer(canvas)
+    fillWithHairs();
+  }
+
   return {
-    stop
+    stop,
+    reset
   }
 }

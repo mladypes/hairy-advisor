@@ -53,8 +53,6 @@ answerLayer.addEventListener('transitionend', (e) => {
 
 hand.addEventListener('transitionend', () => {
     if (handState === handStates.up) {
-        const advice = randomArrayElement(advices)
-        history.pushState(null, null, '?v=2')
         adviceElement.innerHTML = randomArrayElement(advices)
         card.style.visibility = "visible"
         setTimeout(handLeave, 0)
